@@ -28,4 +28,4 @@ tiempo = datetime.now()
 print('Fin del proceso ETL: ', tiempo)
 
 # Ejecutar la visualización
-Visualizacion.visualize_data()
+#Visualizacion.visualize_data()
