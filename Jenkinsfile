@@ -9,7 +9,6 @@
 	    stage('Ejecutar ETL') {
 	      steps {
 	        sh '''
-	          cd /var/jenkins_home/PROY_PY_CERTUS
 	          if [ ! -d venv ]; then
 	            python3 -m venv venv
 	            . venv/bin/activate
