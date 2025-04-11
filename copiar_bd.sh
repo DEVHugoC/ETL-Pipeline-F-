@@ -4,18 +4,18 @@
 CONTENEDOR="jenkins"
 
 # Ruta origen dentro del contenedor
-RUTA_ORIGEN="/var/jenkins_home/workspace/ProyectoFinal/bd_Ordenes_de_Compra.db"
+RUTA_ORIGEN="/var/jenkins_home/RESULTADO/bd_Ordenes_de_Compra.db"
 
-# Ruta destino dentro del contenedor (una carpeta que existe)
-RUTA_DESTINO="/var/jenkins_home/RESULTADO"
+# Ruta destino en tu máquina local (en formato compatible con Bash)
+RUTA_DESTINO="/c/Users/Intel/Desktop/RESULTADO/bd_Ordenes_de_Compra.db"
 
-# Copiar el archivo dentro del contenedor a la carpeta montada
-echo "Copiando base de datos dentro del contenedor..."
-cp "$RUTA_ORIGEN" "$RUTA_DESTINO/bd_Ordenes_de_Compra.db"
+echo "Copiando base de datos a la máquina local..."
+
+docker cp "$CONTENEDOR:$RUTA_ORIGEN" "$RUTA_DESTINO"
 
 if [ $? -eq 0 ]; then
-    echo "Base de datos copiada con éxito al volumen compartido."
+    echo "Base de datos copiada con éxito."
 else
-    echo "Error al copiar la base de datos dentro del contenedor."
+    echo "Error al copiar la base de datos."
     exit 1
 fi
